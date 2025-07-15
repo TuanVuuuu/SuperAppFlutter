@@ -11,7 +11,7 @@ class MiniAppWebViewActivity : Activity() {
         val webView = WebView(this)
         webView.webViewClient = WebViewClient()
         webView.settings.javaScriptEnabled = true
-        val url = intent.getStringExtra("url") ?: "https://localhost:8989"
+        val url = intent.getStringExtra("url") ?: "http://localhost:8989"
         webView.loadUrl(url)
         setContentView(webView)
     }

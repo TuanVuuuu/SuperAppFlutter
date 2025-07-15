@@ -24,7 +24,7 @@ Dự án này là ví dụ về kiến trúc Super App gồm 3 thành phần ch�
 
 ## Luồng hoạt động tổng quan
 1. Chạy web app (Flutter) trên localhost/LAN.
-2. SuperApp gọi `MiniAppSDK.openWebView(...)` để mở WebView trỏ tới URL web app.
+2. SuperApp gọi `MiniAppSDK.openWebView(context)` để mở WebView trỏ tới mini app (baseUrl do SDK quản lý, mặc định là http://localhost:8989).
 3. Người dùng tương tác với mini app ngay trong SuperApp.
 
 ---

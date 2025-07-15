@@ -49,23 +49,29 @@ graph TD
 ```kotlin
 interface MiniAppSDKInterface {
     fun init(application: Application, config: String? = null)
-    fun openWebView(context: Context, url: String)
+    fun openWebView(context: Context)
 }
 
 object MiniAppSDK : MiniAppSDKInterface {
     private var application: Application? = null
     private var config: String? = null
+    private var baseUrl: String = "http://localhost:8989"
 
     override fun init(application: Application, config: String?) {
         this.application = application
         this.config = config
     }
 
-    override fun openWebView(context: Context, url: String) {
+    override fun openWebView(context: Context) {
         val intent = Intent(context, MiniAppWebViewActivity::class.java)
-        intent.putExtra("url", url)
+        intent.putExtra("url", baseUrl)
         intent.putExtra("config", config)
         context.startActivity(intent)
+    }
+
+    // Optional: expose API to set baseUrl if needed
+    fun setBaseUrl(url: String) {
+        baseUrl = url
     }
 }
 ```
@@ -78,7 +84,7 @@ class MiniAppWebViewActivity : Activity() {
         val webView = WebView(this)
         webView.webViewClient = WebViewClient()
         webView.settings.javaScriptEnabled = true
-        val url = intent.getStringExtra("url") ?: "https://example.com"
+        val url = intent.getStringExtra("url") ?: "http://localhost:8989"
         webView.loadUrl(url)
         setContentView(webView)
     }
@@ -88,7 +94,7 @@ class MiniAppWebViewActivity : Activity() {
 ### Host app sử dụng
 ```kotlin
 MiniAppSDK.init(application, "config data")
-MiniAppSDK.openWebView(this, "http://localhost:8989")
+MiniAppSDK.openWebView(this) // Không truyền URL, SDK tự dùng baseUrl nội bộ
 ```
 
 ## 7. Kết luận
