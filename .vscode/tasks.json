@@ -1,0 +1,69 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Clean mini_app_flutter_sdk",
+      "type": "shell",
+      "command": "fvm flutter",
+      "args": [
+        "clean"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/mini_app_flutter_sdk"
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Pub get mini_app_flutter_sdk",
+      "type": "shell",
+      "command": "fvm flutter",
+      "args": [
+        "pub",
+        "get"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/mini_app_flutter_sdk"
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Clean super_app_flutter",
+      "type": "shell",
+      "command": "fvm flutter",
+      "args": [
+        "clean"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/super_app_flutter"
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Pub get super_app_flutter",
+      "type": "shell",
+      "command": "fvm flutter",
+      "args": [
+        "pub",
+        "get"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/super_app_flutter"
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Full Clean & Pub Get",
+      "dependsOn": [
+        "Clean mini_app_flutter_sdk",
+        "Pub get mini_app_flutter_sdk",
+        "Clean super_app_flutter",
+        "Pub get super_app_flutter"
+      ],
+      "dependsOrder": "sequence"
+    }
+  ]
+} 

@@ -63,3 +63,8 @@ Dự án này là ví dụ về kiến trúc Super App gồm 3 thành phần ch�
    ```
    This allows the Android device to access localhost:8989 through USB debugging.
    Note: Port forwarding only works while USB debugging is connected.
+
+## Flutter (fvm flutter use 3.29.3)
+
+
+cd mini_app_flutter_sdk && fvm flutter clean && fvm flutter pub get && cd ../super_app_flutter && fvm flutter clean && fvm flutter pub get

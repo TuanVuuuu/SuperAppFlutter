@@ -30,11 +30,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # mini_app_flutter_sdk:
+  #   git:
+  #     url: https://github.com/TuanVuuuu/SuperAppFlutter.git
+  #     path: mini_app_flutter_sdk
+  #     ref: main
+
   mini_app_flutter_sdk:
-    git:
-      url: https://github.com/TuanVuuuu/SuperAppFlutter.git
-      path: mini_app_flutter_sdk
-      ref: main
+    path: ../mini_app_flutter_sdk
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

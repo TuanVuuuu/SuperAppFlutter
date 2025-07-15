@@ -16,11 +16,12 @@ buildscript {
 
 allprojects {
     repositories {
+        mavenLocal()
         google()
         mavenCentral()
         flatDir {
             dirs 'libs'
-        }
+       }
     }
 }
 
@@ -53,7 +54,8 @@ android {
     dependencies {
         testImplementation("org.jetbrains.kotlin:kotlin-test")
         testImplementation("org.mockito:mockito-core:5.0.0")
-        implementation(name: 'mini_app_android_sdk-release', ext: 'aar')
+        // implementation(name: 'mini_app_android_sdk-release', ext: 'aar')
+        implementation 'com.example:mini_app_android_sdk:1.0.0@aar'
     }
 
     testOptions {

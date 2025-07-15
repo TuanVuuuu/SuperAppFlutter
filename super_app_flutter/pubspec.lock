@@ -134,11 +134,9 @@ packages:
   mini_app_flutter_sdk:
     dependency: "direct main"
     description:
-      path: mini_app_flutter_sdk
-      ref: main
-      resolved-ref: "8db823fa3756819ebf184f890d624281a376513b"
-      url: "https://github.com/TuanVuuuu/SuperAppFlutter.git"
-    source: git
+      path: "../mini_app_flutter_sdk"
+      relative: true
+    source: path
     version: "0.0.1"
   path:
     dependency: transitive
