@@ -31,3 +31,35 @@ Dự án này là ví dụ về kiến trúc Super App gồm 3 thành phần ch�
 
 ## Tài liệu chi tiết
 - Xem thêm hướng dẫn build/run, tích hợp, phát triển tại file [`MINI_APP_SDK_IDEA.md`](./MINI_APP_SDK_IDEA.md) 
+
+## Example run 
+1. Run web app (Flutter web) on localhost:
+   ```sh
+   cd web_app
+   flutter pub get
+   flutter run -d web-server --web-port=8989 --web-hostname=0.0.0.0
+   ```
+
+2. Build Mini App SDK (.aar):
+   ```sh
+   cd mini_app_android_sdk
+   ./gradlew assembleRelease
+   ```
+
+3. Copy .aar to SuperApp:
+   ```sh
+   cp mini_app_android_sdk/build/outputs/aar/mini_app_android_sdk-release.aar SuperApp/app/libs/
+   ```
+
+4. Build & run SuperApp:
+   ```sh
+   cd SuperApp
+   ./gradlew installDebug
+   ```
+(mini app chỉ chạy được khi kết nối USB, sẽ mặc định là localhost)
+5. Setup port forwarding for localhost access:
+   ```sh
+   adb reverse tcp:8989 tcp:8989
+   ```
+   This allows the Android device to access localhost:8989 through USB debugging.
+   Note: Port forwarding only works while USB debugging is connected.
